@@ -2,8 +2,8 @@ name: Monitor Amazon Afiliados MX
 
 on:
   schedule:
-    # Se ejecuta cada 6 horas
-    - cron: '0 */6 * * *'
+    # Se ejecuta cada 30 minutos
+    - cron: '*/30 * * * *'
   workflow_dispatch: # Permite ejecutarlo manualmente desde GitHub
 
 jobs:
@@ -23,4 +23,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Ejecutar revisión
+        env:
+          # Pasamos los secretos de GitHub al script de Python
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python check_amazon.py
