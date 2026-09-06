@@ -47,7 +47,7 @@ def check_status():
         if CLOSED_TEXT in page_text:
             print("[INFO] Los registros siguen cerrados.")
             # Descomenta la siguiente línea si quieres que te notifique a Telegram cada media hora que sigue cerrado
-            # enviar_telegram("ℹ️ <b>Amazon Afiliados</b>: Los registros siguen cerrados.")
+            enviar_telegram("ℹ️ <b>Amazon Afiliados</b>: Los registros siguen cerrados.")
         else:
             mensaje = f"🚨 <b>¡ATENCIÓN!</b> La página de registro de Amazon parece estar ACTIVA o ha cambiado.\n\n🔗 Revisa aquí: {URL}"
             print(mensaje)
